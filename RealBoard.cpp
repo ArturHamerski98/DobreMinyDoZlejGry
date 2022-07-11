@@ -5,13 +5,13 @@ void RealBoard::randomMineGenerator(int x, int y)
 	int iloscMinNaMapie;
 	int iloscRozdanych = 0;
 
-	if (size == [9]) {
+	if (size == 9) {
 		iloscMinNaMapie = 10;
 	}
-	if (size == [16]) {
+	if (size == 16) {
 		iloscMinNaMapie = 40;
 	}
-	if (size == [24]) {
+	if (size == 24) {
 		iloscMinNaMapie = 99;
 
 	}

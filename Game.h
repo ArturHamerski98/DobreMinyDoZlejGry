@@ -12,6 +12,8 @@ public:
 
 public:
 	void CheckIsWin();
+	void makeAMove();
+	bool isOccupied(int x, int y);
 	Game(int size);
 
 
