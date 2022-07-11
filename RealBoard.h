@@ -4,7 +4,7 @@ class RealBoard :
     public Board
 {
 public:
-    void randomMineGenerator();
+    void randomMineGenerator(int x, int y);
 public:
    // RealBoard(int size);
    // RealBoard();
