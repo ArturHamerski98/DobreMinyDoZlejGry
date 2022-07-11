@@ -8,7 +8,7 @@ int main() {
     std::cin >> rozmiar;
     Game game(rozmiar);
     std::cout<<game.myBoard.ary[3][8].numOfMinesAround;
-    std::cout << "eloo";
+    std::cout << "eloo111";
 
     return 0;
 }
