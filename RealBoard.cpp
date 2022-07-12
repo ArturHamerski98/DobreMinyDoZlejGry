@@ -2,47 +2,42 @@
 #include <time.h>
 #include <stdlib.h>
 #include <ctime>
+#include <iostream>
 
 void RealBoard::randomMineGenerator(int x, int y)
 {
-	int iloscMinNaMapie;
-	int iloscRozdanych = 0;
+    int iloscMinNaMapie;
+    int iloscRozdanych = 0;
 
-	if (size == 9) {
-		iloscMinNaMapie = 10;
-	}
-	if (size == 16) {
-		iloscMinNaMapie = 40;
-	}
-	if (size == 24) {
-		iloscMinNaMapie = 99;
+    if (size == 9) {
+        iloscMinNaMapie = 10;
+    }
+    if (size == 16) {
+        iloscMinNaMapie = 40;
+    }
+    if (size == 24) {
+        iloscMinNaMapie = 99;
 
-	}
-	srand(time(NULL));
+    }
+    srand(time(NULL));
 
+    while (iloscRozdanych < iloscMinNaMapie) {
 
-	while (iloscRozdanych < iloscMinNaMapie) {
+        int a = rand() % 9;
+        int b = rand() % 9;
 
-		int a = rand() % 9;
-		int b = rand() % 9;
-
-
-		if (a == x && b == y) {
-			continue;
-		}
-		else if (ary[a][b].isMine == true) {
-			continue;
-		}
-
-		else if (ary[a][b].isMine == false) {
-			ary[a][b].isClicked = true;
-=======
-		else if (ary[a][b].isMine == false){
-
-			ary[a][b].isMine = true;
-			iloscRozdanych++;
-		}
-	}
+        if (a == x && b == y) {
+            continue;
+        }
+        else if (ary[a][b].isMine == true) {
+            continue;
+        }
+        else if (ary[a][b].isMine == false) {
+            ary[a][b].isClicked = true;
+            ary[a][b].isMine = true;
+            iloscRozdanych++;
+        }
+    }
 }
 
 
@@ -90,5 +85,5 @@ RealBoard::RealBoard()
 
     }
 }
-=======
+
 
