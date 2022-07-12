@@ -3,16 +3,12 @@
 
 class Board
 {
-public:	
+protected:
 	int size;
-	Tile ary[10][10];
 	
-
-
+public:
+	Tile** ary;
+	
 	void printBoard();
-	//Board(int size);
-	Board();
-
-
 };
 

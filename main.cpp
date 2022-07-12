@@ -63,8 +63,5 @@ int main() {
     checkRozmiar();
 
     Game game(rozmiar);
-    std::cout<<game.myBoard.ary[3][8].numOfMinesAround;
-    std::cout << "eloo111";
 
-    return 0;  
 }

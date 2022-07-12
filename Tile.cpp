@@ -1,5 +1,6 @@
 #include "Tile.h"
 
+
 Tile::Tile()
 {
 	isClicked = false;
