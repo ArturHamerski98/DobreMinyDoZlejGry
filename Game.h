@@ -4,20 +4,22 @@
 #include "Board.h"
 class Game
 {
-public:
+private:
 	int size;
 	int turnCounter;
+	void CheckIsWin();
+public:	
 	MyBoard myBoard;
 	RealBoard realBoard;
+
 
 public:
 	void CheckIsWin();
 	void makeAMove();
 	bool isOccupied(int x, int y);
+
 	Game(int size);
-
-
-
+	void makeAMove();
 
 };
 

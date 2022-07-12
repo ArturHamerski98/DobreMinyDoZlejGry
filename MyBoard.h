@@ -3,10 +3,10 @@
 #include "Tile.h"
 class MyBoard :
     public Board
-{
-    void updateField(int x, int y, Tile tile);
+{ 
 public:
-   // MyBoard(int size);
-    //MyBoard();
+    void updateField(int x, int y, Tile tile);
+    MyBoard(int size);
+    MyBoard();
 };
 

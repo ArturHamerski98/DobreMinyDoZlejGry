@@ -1,4 +1,7 @@
 #include "RealBoard.h"
+#include <time.h>
+#include <stdlib.h>
+#include <ctime>
 
 void RealBoard::randomMineGenerator(int x, int y)
 {
@@ -16,11 +19,13 @@ void RealBoard::randomMineGenerator(int x, int y)
 
 	}
 	srand(time(NULL));
-	
+
+
 	while (iloscRozdanych < iloscMinNaMapie) {
-		
-		int a = rand() % 10;
-		int b = rand() % 10;
+
+		int a = rand() % 9;
+		int b = rand() % 9;
+
 
 		if (a == x && b == y) {
 			continue;
@@ -28,9 +33,37 @@ void RealBoard::randomMineGenerator(int x, int y)
 		else if (ary[a][b].isMine == true) {
 			continue;
 		}
+
+		else if (ary[a][b].isMine == false) {
+			ary[a][b].isClicked = true;
+=======
 		else if (ary[a][b].isMine == false){
+
 			ary[a][b].isMine = true;
 			iloscRozdanych++;
 		}
 	}
 }
+
+
+RealBoard::RealBoard(int size)
+{
+    this->size = size;
+    ary = new Tile * [size];
+    for (int i = 0; i < size; i++) {
+        ary[i] = new Tile[size];
+
+    }
+}
+
+RealBoard::RealBoard()
+{
+    size = 10;
+    ary = new Tile * [size];
+    for (int i = 0; i < size; i++) {
+        ary[i] = new Tile[size];
+
+    }
+}
+=======
+
