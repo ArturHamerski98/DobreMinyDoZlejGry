@@ -5,14 +5,15 @@
 class Game
 {
 private:
-	int size;
-	int turnCounter;
-	void CheckIsWin();
-public:	
-	MyBoard myBoard;
-	RealBoard realBoard;
-	Game(int size);
-	void makeAMove();
+    int size;
+    int turnCounter;
+    void CheckIsWin();
+public:
+    MyBoard myBoard;
+    RealBoard realBoard;
+    Game(int size);
+    void validateMove();
+    void makeMove(int x, int y);
+    void playGame();
 
 };
-

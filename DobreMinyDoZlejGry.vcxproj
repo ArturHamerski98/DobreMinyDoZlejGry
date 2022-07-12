@@ -130,6 +130,7 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MyBoard.cpp" />
     <ClCompile Include="RealBoard.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MyBoard.h" />
     <ClInclude Include="RealBoard.h" />
     <ClInclude Include="Tile.h" />
