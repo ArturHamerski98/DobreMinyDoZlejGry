@@ -62,22 +62,38 @@ void Game::makeMove(int x, int y)
 {
     myBoard.ary[x][y] = realBoard.ary[x][y];
 
+    if (myBoard.ary[x][y].numOfMinesAround == 0) {
+        for (int i = -1; i < 2; i++)
+        {
+            for (int j = -1; j < 2; j++)
+            {
+                if ((x + i >= size) || (y + j >= size) || (x + i < 0)
+                    || (y + j < 0) || (myBoard.ary[x + i][y + j].isClicked == true))
+                    continue;
+                else
+                    makeMove(x + i, y + j);
+
+            }
+        }
+    }
 }
 
 void Game::playGame()
 {
     int i = 0;
     while (1) {
-        realBoard.printBoard();
-        std::cout << "\n ";
-        myBoard.printBoard();
-        std::cout << "\n";
-        validateMove();
         if (i == 0)
         {
             realBoard.randomMineGenerator(3, 4);
             realBoard.checkAllTiles();
         }
+        system("cls");
+        realBoard.printBoard();
+        std::cout << "\n";
+        myBoard.printBoard();
+        std::cout << "\n";
+        validateMove();
+       
         i++;
     }
 

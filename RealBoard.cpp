@@ -23,8 +23,8 @@ void RealBoard::randomMineGenerator(int x, int y)
 
     while (iloscRozdanych < iloscMinNaMapie) {
 
-        int a = rand() % 9;
-        int b = rand() % 9;
+        int a = rand() % size;
+        int b = rand() % size;
 
         if (a == x && b == y) {
             continue;
