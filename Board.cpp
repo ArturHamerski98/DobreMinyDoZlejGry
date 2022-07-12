@@ -15,7 +15,7 @@ void Board::printBoard()
             else if (u == 0)
                 std::cout << v << " ";
             else if(ary[u-1][v-1].isClicked==false)
-                std::cout <<"O ";
+                std::cout <<"  ";
             else if(ary[u-1][v-1].isMine == true)
                 std::cout << "M" << " ";
             else

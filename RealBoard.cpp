@@ -46,6 +46,31 @@ void RealBoard::randomMineGenerator(int x, int y)
 }
 
 
+void RealBoard::checkAllTiles()
+{
+	
+	for (int p = 0; p < size; p++) {
+
+		for (int x = 0; x < size; x++)
+		{
+			for (int i = -1; i < 2; i++)
+			{
+				for (int j = -1; j < 2; j++)
+				{
+					if((p+i>=size)||(x+j>=size)||(p+i<0)||(x+j<0))
+						continue;
+					if (ary[p + i][x + j].isMine == true)
+						ary[p][x].numOfMinesAround++;
+					
+				}
+			}
+			ary[p][x].isClicked = true;
+		}
+	}
+	
+}
+
+
 RealBoard::RealBoard(int size)
 {
     this->size = size;
