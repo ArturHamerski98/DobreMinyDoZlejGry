@@ -69,7 +69,7 @@ void Game::playGame()
     int i = 0;
     while (1) {
         realBoard.printBoard();
-        std::cout << "\n";
+        std::cout << "\n ";
         myBoard.printBoard();
         std::cout << "\n";
         validateMove();
