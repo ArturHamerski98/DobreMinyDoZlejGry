@@ -8,5 +8,6 @@ public:
 public:
    RealBoard(int size);
    RealBoard();
+   void checkAllTiles();
 };
 
