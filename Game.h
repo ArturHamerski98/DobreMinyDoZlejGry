@@ -5,6 +5,7 @@
 class Game
 {
 private:
+
     int size;
     int turnCounter;
     void CheckIsWin();
@@ -15,5 +16,6 @@ public:
     void validateMove();
     void makeMove(int x, int y);
     void playGame();
+
 
 };
