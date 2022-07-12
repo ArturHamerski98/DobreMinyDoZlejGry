@@ -20,10 +20,12 @@ void RealBoard::randomMineGenerator(int x, int y)
 	}
 	srand(time(NULL));
 
+
 	while (iloscRozdanych < iloscMinNaMapie) {
 
 		int a = rand() % 9;
 		int b = rand() % 9;
+
 
 		if (a == x && b == y) {
 			continue;
@@ -31,13 +33,18 @@ void RealBoard::randomMineGenerator(int x, int y)
 		else if (ary[a][b].isMine == true) {
 			continue;
 		}
+
 		else if (ary[a][b].isMine == false) {
 			ary[a][b].isClicked = true;
+=======
+		else if (ary[a][b].isMine == false){
+
 			ary[a][b].isMine = true;
 			iloscRozdanych++;
 		}
 	}
 }
+
 
 RealBoard::RealBoard(int size)
 {
@@ -58,3 +65,5 @@ RealBoard::RealBoard()
 
     }
 }
+=======
+

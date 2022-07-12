@@ -63,5 +63,4 @@ int main() {
     checkRozmiar();
 
     Game game(rozmiar);
-
 }
