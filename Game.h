@@ -12,6 +12,8 @@ public:
     MyBoard myBoard;
     RealBoard realBoard;
     Game(int size);
-    void makeAMove();
+    void validateMove();
+    void makeMove(int x, int y);
+    void playGame(int x);
 
 };

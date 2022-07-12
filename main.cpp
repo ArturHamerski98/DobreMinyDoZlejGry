@@ -12,11 +12,6 @@ int main() {
     game.realBoard.randomMineGenerator(3, 4);
     //game.realBoard.printBoard();
     game.realBoard.checkAllTiles();
-    std::cout << "\n\n";
-    game.myBoard.printBoard();
-    std::cout << "\n";
-    game.realBoard.printBoard();
-    std::cout << "\n";
-    game.makeAMove();
+    game.playGame(22);
     return 0;
 }

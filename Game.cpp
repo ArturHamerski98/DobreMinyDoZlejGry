@@ -10,7 +10,7 @@ Game::Game(int size)
 
 
 }
-void Game::makeAMove()
+void Game::validateMove()
 {
     int x{}, y{};
     bool validCoordinate = false;
@@ -41,15 +41,37 @@ void Game::makeAMove()
         if (realBoard.ary[x][y].isMine == true) {
             std::cout << "BOOOOOOOM!\n";
             std::cout << "YOU LOSE!\n";
-            break;
+            exit(0);
         }
 
-        if (realBoard.ary[x][y].isClicked == true) {
+        if (myBoard.ary[x][y].isClicked == true) {
             std::cout << "This tile was already checked. Try another one.";
             continue;
         }
-        else
+        else {
             validCoordinate = true;
+            makeMove(x, y);
+        }
+            
+
 
     }
+}
+
+void Game::makeMove(int x, int y)
+{
+    myBoard.ary[x][y] = realBoard.ary[x][y];
+
+}
+
+void Game::playGame(int x)
+{
+    while (1) {
+        realBoard.printBoard();
+        std::cout << "\n";
+        myBoard.printBoard();
+        std::cout << "\n";
+        validateMove();
+    }
+    
 }
