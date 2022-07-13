@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <iostream>
+#include "Menu.h"
 
 Game::Game(int size)
 {
@@ -52,9 +53,6 @@ void Game::validateMove()
             validCoordinate = true;
             makeMove(x, y);
         }
-
-
-
     }
 }
 
@@ -79,6 +77,69 @@ void Game::playGame()
             realBoard.checkAllTiles();
         }
         i++;
+
+        CheckIsWin(size);
     }
 
 }
+
+void Game::CheckIsWin(int size) {
+
+    int suma = 0;
+
+    for (int p = 0; p < size; p++) {
+        for (int x = 0; x < size; x++) {
+
+            if (myBoard.ary[p][x].isClicked == true || realBoard.ary[p][x].isMine == true) {
+                suma++;
+            }
+        }
+    }
+    if (suma == size * size) {
+        std::cout << "Congratulations! You won!\n\n";
+        std::cout << "What do you want to do now?\n";
+        std::cout << "1. Back to MENU\n"; 
+        std::cout << "2. Exit\n";
+
+        Menu s;
+        switch (checkChoice()) {
+        case 1: s.start(); 
+        case 2: exit(0);
+        }
+    }
+}
+bool Menu::checkNumbers(char c) {
+    return c >= '0' && c <= '9';
+}
+
+bool Game::checkChoiceValue() {
+    if (choice > 2 || choice < 1) {
+        std::cout << "The entered value should be in range 1-2, try again: ";
+    }
+
+    return (choice <= 2 && choice >= 1);
+}
+
+int Game::checkChoice() {
+    do {
+        std::cin >> choice;
+        for (int i = 0; !inputRozmiar.empty() && (i <= inputRozmiar.length() - 1); i++) {
+            if (checkNumbers(inputRozmiar[i])) {
+                continue;
+            }
+            else {
+                std::cout << "\nThe entered value is incorrect." << std::endl;
+                inputRozmiar.clear();
+                break;
+            }
+        }
+
+        if (!inputRozmiar.empty()) {
+            choice = std::stoi(inputRozmiar);
+            inputRozmiar.clear();
+        }
+    } while (!checkChoiceValue());
+
+    return choice;
+}
+

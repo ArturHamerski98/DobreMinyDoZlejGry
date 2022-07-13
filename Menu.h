@@ -1,14 +1,13 @@
 #pragma once
 #include <string>
 
-
-
 class Menu
 {
 public:
     int rozmiar{};
     std::string inputRozmiar{};
     int start();
+   
 
 
 private:
@@ -16,4 +15,5 @@ private:
     bool checkRozmiarValue();
     int checkRozmiar();
     int displayMenu();
+   
 };

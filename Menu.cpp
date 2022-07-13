@@ -20,7 +20,7 @@ int Menu::checkRozmiar() {
         std::cin >> inputRozmiar;
 
         //check char-by-char if inputed value is an positive integer
-        for (int i = 0; not inputRozmiar.empty() && (i <= inputRozmiar.length() - 1); i++) {
+        for (int i = 0; !inputRozmiar.empty() && (i <= inputRozmiar.length() - 1); i++) {
             if (checkNumbers(inputRozmiar[i])) {
                 continue;
             }
@@ -31,16 +31,16 @@ int Menu::checkRozmiar() {
             }
         }
 
-        if (not inputRozmiar.empty()) {
+        if (!inputRozmiar.empty()) {
             rozmiar = std::stoi(inputRozmiar);
             inputRozmiar.clear();
         }
-    } while (not checkRozmiarValue());
+    } while (!checkRozmiarValue());
 
     return rozmiar;
 }
 
-int Menu::displayMenu() {
+int displayMenu() {
 
     std::cout << "|---------------------------------------------|" << std::endl;
     std::cout << "|                                             |" << std::endl;
@@ -53,8 +53,10 @@ int Menu::displayMenu() {
     std::cout << "1. Begginer\n";
     std::cout << "2. Intermediate\n";
     std::cout << "3. Advanced\n";
-
-    switch (checkRozmiar()) {
+    
+    Menu s;
+    int o = s.checkRozmiar();
+    switch (o) {
     case 1: return 9;
     case 2: return 16;
     case 3: return 24;
@@ -62,5 +64,5 @@ int Menu::displayMenu() {
 }
 
 int Menu::start() {
-    return (displayMenu());
+    return(displayMenu());
 }
