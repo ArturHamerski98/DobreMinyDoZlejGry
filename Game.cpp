@@ -44,6 +44,8 @@ void Game::validateMove() {
             int temp = 0;
             while (temp == 0) {
                 std::string input;
+                system("cls");
+                realBoard.printBoard();
                 std::cout << "\nBOOOOOOOM!\n";
                 std::cout << "YOU LOSE!\n\n";
                 std::cout << "1. Back to MENU\n";
@@ -51,7 +53,12 @@ void Game::validateMove() {
 
                 std::cin >> input;
                 if (input == "1")
-                    m.start();
+                {
+                    Game game(m.start());
+                    game.playGame();
+                }
+                    
+                    
                 else if (input == "2")
                     exit(0);
                 else {
