@@ -3,14 +3,17 @@ class Tile
 {
 private:
 	bool isMine;
-
-public:
 	bool isClicked;
 	int numOfMinesAround;
+
+public:
 	Tile();
+	int checkNumOfMinesAround();
+	void setNumOfMinesAround();
+	bool checkIsClicked();
+	void setClicked();
 	bool checkIsMine();
 	void setMine();
-	
 
 };
 

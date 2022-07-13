@@ -1,18 +1,31 @@
 #include "Tile.h"
 
-Tile::Tile()
-{
+Tile::Tile(){
 	isClicked = false;
 	isMine = false;
 	numOfMinesAround = 0;
 }
 
-bool Tile::checkIsMine()
-{
+int Tile::checkNumOfMinesAround(){
+	return this->numOfMinesAround;
+}
+
+bool Tile::checkIsClicked(){
+	return this->isClicked;
+}
+
+void Tile::setNumOfMinesAround(){
+	this->numOfMinesAround = numOfMinesAround + 1;
+}
+
+void Tile::setClicked(){
+	this->isClicked = true;
+}
+
+bool Tile::checkIsMine(){
 	return this->isMine;
 }
 
-void Tile::setMine()
-{
+void Tile::setMine(){
 	this->isMine = true;
 }

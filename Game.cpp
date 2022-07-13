@@ -44,8 +44,8 @@ void Game::validateMove() {
             int temp = 0;
             while (temp == 0) {
                 std::string input;
-                std::cout << "BOOOOOOOM!\n";
-                std::cout << "YOU LOSE!\n";
+                std::cout << "\nBOOOOOOOM!\n";
+                std::cout << "YOU LOSE!\n\n";
                 std::cout << "1. Back to MENU\n";
                 std::cout << "2. Exit\n";
 
@@ -65,8 +65,8 @@ void Game::validateMove() {
             exit(0);
         }
 
-        if (myBoard.ary[x][y].isClicked == true) {
-            std::cout << "This tile was already checked. Try another one.";
+        if (myBoard.ary[x][y].checkIsClicked() == true) {
+            std::cout << "This tile was already checked. Try another one.\n";
             continue;
         }
         else {
@@ -89,11 +89,11 @@ void Game::validateMove() {
 void Game::makeMove(int x, int y) {
     myBoard.ary[x][y] = realBoard.ary[x][y];
 
-    if (myBoard.ary[x][y].numOfMinesAround == 0) {
+    if (myBoard.ary[x][y].checkNumOfMinesAround() == 0) {
         for (int i = -1; i < 2; i++) {
             for (int j = -1; j < 2; j++) {
                 if ((x + i >= size) || (y + j >= size) || (x + i < 0) ||
-                    (y + j < 0) || (myBoard.ary[x + i][y + j].isClicked == true))
+                    (y + j < 0) || (myBoard.ary[x + i][y + j].checkIsClicked() == true))
                     continue;
                 else
                     makeMove(x + i, y + j);
@@ -125,7 +125,7 @@ void Game::checkIsWin(int size) {
     for (int p = 0; p < size; p++) {
         for (int x = 0; x < size; x++) {
 
-            if (myBoard.ary[p][x].isClicked == true || realBoard.ary[p][x].checkIsMine() == true) {
+            if (myBoard.ary[p][x].checkIsClicked() == true || realBoard.ary[p][x].checkIsMine() == true) {
                 suma++;
             }
         }

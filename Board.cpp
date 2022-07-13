@@ -18,16 +18,16 @@ void Board::printBoard() {
             else if (u == 0) {
                 if (v == 0)
                     std::cout << " ";
-                std::wcout << v << " ";
+                std::cout << v << " ";
                 if (v < 10)
                     std::cout << " ";
             }
-            else if (ary[u - 1][v - 1].isClicked == false)
+            else if (ary[u - 1][v - 1].checkIsClicked() == false)
                 std::cout << "   ";
             else if (ary[u - 1][v - 1].checkIsMine() == true)
                 std::cout << "M" << "  ";
             else
-                std::cout << ary[u - 1][v - 1].numOfMinesAround << "  ";
+                std::cout << ary[u - 1][v - 1].checkNumOfMinesAround() << "  ";
         std::cout << std::endl;
     }
 }
