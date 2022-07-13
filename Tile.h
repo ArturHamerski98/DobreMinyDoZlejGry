@@ -1,13 +1,16 @@
 #pragma once
 class Tile
 {
-public:
-	bool isClicked;
+private:
 	bool isMine;
-	int numOfMinesAround;
 
 public:
+	bool isClicked;
+	int numOfMinesAround;
 	Tile();
+	bool checkIsMine();
+	void setMine();
+	
 
 };
 

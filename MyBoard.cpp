@@ -6,7 +6,6 @@ MyBoard::MyBoard(int size)
     ary = new Tile * [size];
     for (int i = 0; i < size; i++) {
         ary[i] = new Tile[size];
-
     }
 }
 
@@ -16,6 +15,5 @@ MyBoard::MyBoard()
     ary = new Tile * [size];
     for (int i = 0; i < size; i++) {
         ary[i] = new Tile[size];
-
     }
 }

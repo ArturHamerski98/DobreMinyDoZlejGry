@@ -1,15 +1,12 @@
 #pragma once
 #include <string>
 
-
-
 class Menu
 {
 public:
     int rozmiar{};
     std::string inputRozmiar{};
     int start();
-
 
 private:
     bool checkNumbers(char c);

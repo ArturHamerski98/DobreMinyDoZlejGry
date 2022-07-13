@@ -4,10 +4,9 @@
 #include <ctime>
 #include <iostream>
 
-void RealBoard::randomMineGenerator(int x, int y)
-{
-    int iloscMinNaMapie;
-    int iloscRozdanych = 0;
+void RealBoard::randomMineGenerator(int x, int y) {
+    int iloscMinNaMapie{};
+    int iloscRozdanych{};
 
     if (size == 9) {
         iloscMinNaMapie = 10;
@@ -29,61 +28,49 @@ void RealBoard::randomMineGenerator(int x, int y)
         if (a == x && b == y) {
             continue;
         }
-        else if (ary[a][b].isMine == true) {
+        else if (ary[a][b].checkIsMine() == true) {
             continue;
         }
-        else if (ary[a][b].isMine == false) {
+        else if (ary[a][b].checkIsMine() == false) {
             ary[a][b].isClicked = true;
-            ary[a][b].isMine = true;
+            ary[a][b].setMine();
             iloscRozdanych++;
         }
     }
 }
 
+void RealBoard::checkAllTiles() {
 
-void RealBoard::checkAllTiles()
-{
-	
-	for (int p = 0; p < size; p++) {
+    for (int p = 0; p < size; p++) {
 
-		for (int x = 0; x < size; x++)
-		{
-			for (int i = -1; i < 2; i++)
-			{
-				for (int j = -1; j < 2; j++)
-				{
-					if((p+i>=size)||(x+j>=size)||(p+i<0)||(x+j<0))
-						continue;
-					if (ary[p + i][x + j].isMine == true)
-						ary[p][x].numOfMinesAround++;
-					
-				}
-			}
-			ary[p][x].isClicked = true;
-		}
-	}
-	
+        for (int x = 0; x < size; x++) {
+            for (int i = -1; i < 2; i++) {
+                for (int j = -1; j < 2; j++) {
+                    if ((p + i >= size) || (x + j >= size) || (p + i < 0) || (x + j < 0))
+                        continue;
+                    if (ary[p + i][x + j].checkIsMine() == true)
+                        ary[p][x].numOfMinesAround++;
+
+                }
+            }
+            ary[p][x].isClicked = true;
+        }
+    }
+
 }
 
-
-RealBoard::RealBoard(int size)
-{
+RealBoard::RealBoard(int size) {
     this->size = size;
     ary = new Tile * [size];
     for (int i = 0; i < size; i++) {
         ary[i] = new Tile[size];
-
     }
 }
 
-RealBoard::RealBoard()
-{
+RealBoard::RealBoard() {
     size = 10;
     ary = new Tile * [size];
     for (int i = 0; i < size; i++) {
         ary[i] = new Tile[size];
-
     }
 }
-
-

@@ -3,9 +3,6 @@
 class RealBoard :
     public Board
 {
-private:
-    
-    
 
 public:
    void randomMineGenerator(int x, int y);
