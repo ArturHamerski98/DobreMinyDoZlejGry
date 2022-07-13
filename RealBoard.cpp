@@ -32,7 +32,7 @@ void RealBoard::randomMineGenerator(int x, int y) {
             continue;
         }
         else if (ary[a][b].checkIsMine() == false) {
-            ary[a][b].isClicked = true;
+            ary[a][b].setClicked();
             ary[a][b].setMine();
             iloscRozdanych++;
         }
@@ -49,11 +49,11 @@ void RealBoard::checkAllTiles() {
                     if ((p + i >= size) || (x + j >= size) || (p + i < 0) || (x + j < 0))
                         continue;
                     if (ary[p + i][x + j].checkIsMine() == true)
-                        ary[p][x].numOfMinesAround++;
+                        ary[p][x].setNumOfMinesAround();
 
                 }
             }
-            ary[p][x].isClicked = true;
+            ary[p][x].setClicked();
         }
     }
 
