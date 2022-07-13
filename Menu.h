@@ -9,7 +9,6 @@ public:
     int start();
    
 
-
 private:
     bool checkNumbers(char c);
     bool checkRozmiarValue();

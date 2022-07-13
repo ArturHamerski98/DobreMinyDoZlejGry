@@ -20,7 +20,7 @@ int Menu::checkRozmiar() {
         std::cin >> inputRozmiar;
 
         //check char-by-char if inputed value is an positive integer
-        for (int i = 0; !inputRozmiar.empty() && (i <= inputRozmiar.length() - 1); i++) {
+        for (int i = 0; not inputRozmiar.empty() && (i <= inputRozmiar.length() - 1); i++) {
             if (checkNumbers(inputRozmiar[i])) {
                 continue;
             }
@@ -31,38 +31,38 @@ int Menu::checkRozmiar() {
             }
         }
 
-        if (!inputRozmiar.empty()) {
+        if (not inputRozmiar.empty()) {
             rozmiar = std::stoi(inputRozmiar);
             inputRozmiar.clear();
         }
-    } while (!checkRozmiarValue());
+    } while (not checkRozmiarValue());
 
     return rozmiar;
 }
 
-int displayMenu() {
-
+int Menu::displayMenu() {
+    system("cls");
     std::cout << "|---------------------------------------------|" << std::endl;
     std::cout << "|                                             |" << std::endl;
     std::cout << "|        Welcome in the MINESWEEPER!          |" << std::endl;
     std::cout << "|                                             |" << std::endl;
     std::cout << "|---------------------------------------------|" << std::endl;
 
-
     std::cout << "Choose level\n";
     std::cout << "1. Begginer\n";
     std::cout << "2. Intermediate\n";
     std::cout << "3. Advanced\n";
-    
-    Menu s;
-    int o = s.checkRozmiar();
-    switch (o) {
-    case 1: return 9;
-    case 2: return 16;
-    case 3: return 24;
+
+    switch (checkRozmiar()) {
+    case 1:
+        return 9;
+    case 2:
+        return 16;
+    case 3:
+        return 24;
     }
 }
 
 int Menu::start() {
-    return(displayMenu());
+    return (displayMenu());
 }
