@@ -8,7 +8,6 @@ protected:
 	
 public:
 	Tile** ary;
-	
 	void printBoard();
 };
 

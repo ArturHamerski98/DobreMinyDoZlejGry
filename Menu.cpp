@@ -41,13 +41,12 @@ int Menu::checkRozmiar() {
 }
 
 int Menu::displayMenu() {
-
+    system("cls");
     std::cout << "|---------------------------------------------|" << std::endl;
     std::cout << "|                                             |" << std::endl;
     std::cout << "|        Welcome in the MINESWEEPER!          |" << std::endl;
     std::cout << "|                                             |" << std::endl;
     std::cout << "|---------------------------------------------|" << std::endl;
-
 
     std::cout << "Choose level\n";
     std::cout << "1. Begginer\n";
@@ -55,9 +54,12 @@ int Menu::displayMenu() {
     std::cout << "3. Advanced\n";
 
     switch (checkRozmiar()) {
-    case 1: return 9;
-    case 2: return 16;
-    case 3: return 24;
+    case 1:
+        return 9;
+    case 2:
+        return 16;
+    case 3:
+        return 24;
     }
 }
 
