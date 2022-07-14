@@ -13,33 +13,74 @@ Game::Game(int size) {
 }
 void Game::validateMove() {
     int x{}, y{};
+    std::string a, b;
     bool validCoordinate = false;
 
     while (validCoordinate == false) {
         std::cout << "Enter x coordinate: ";
-        std::cin >> x;
+        std::getline(std::cin, a);
+
+        if (a == "exit") {
+            std::cout << "See you next time!\n\n";
+            exit(0);
+        }
+
+        int sum = 0;
+        for (int i = 0; i < a.size(); i++) {
+            if (isdigit(a[i]))sum++;
+        }
+        if (sum == a.size()) x = std::stoi(a);
+
         x--;
 
-        while (x > size || x < 0) {
+        while (x > size - 1 || x < 0) {
             std::cout << "Invalid coordinate. Type coordinate again!\n";
             std::cout << "Enter x coordinate: ";
-            std::cin >> x;
+            std::getline(std::cin, a);
+
+            int sum = 0;
+
+            for (int i = 0; i < a.size(); i++)
+                if (isdigit(a[i]))sum++;
+            if (sum == a.size())
+                x = std::stoi(a);
+
             x--;
         }
 
         std::cout << "Enter y coordinate: ";
-        std::cin >> y;
+        std::getline(std::cin, b);
+
+        if (b == "exit") {
+            std::cout << "See you next time!\n\n";
+            exit(0);
+        }
+
+        int sum2 = 0;
+        for (int i = 0; i < b.size(); i++)
+            if (isdigit(b[i]))sum2++;
+        if (sum2 == b.size())
+            y = std::stoi(b);
+
         y--;
 
-        while (y > size || y < 0) {
+        while (y > size - 1 || y < 0) {
             std::cout << "Invalid coordinate. Type coordinate again\n";
             std::cout << "Enter y coordinate: ";
-            std::cin >> y;
+
+            std::getline(std::cin, b);
+            int sum2 = 0;
+
+            for (int i = 0; i < b.size(); i++)
+                if (isdigit(b[i]))sum2++;
+            if (sum2 == b.size())
+                y = std::stoi(b);
+
             y--;
         }
 
         if (realBoard.ary[x][y].checkIsMine() == true) {
-            
+
             Menu m;
             int temp = 0;
             while (temp == 0) {
@@ -51,14 +92,12 @@ void Game::validateMove() {
                 std::cout << "1. Back to MENU\n";
                 std::cout << "2. Exit\n";
 
-                std::cin >> input;
+                std::getline(std::cin, input);
                 if (input == "1")
                 {
                     Game game(m.start());
                     game.playGame();
                 }
-                    
-                    
                 else if (input == "2")
                     exit(0);
                 else {
@@ -67,11 +106,9 @@ void Game::validateMove() {
                     system("cls");
                     temp = 0;
                 }
-
             }
             exit(0);
         }
-
         if (myBoard.ary[x][y].checkIsClicked() == true) {
             std::cout << "This tile was already checked. Try another one.\n";
             continue;
@@ -84,12 +121,9 @@ void Game::validateMove() {
             {
                 realBoard.randomMineGenerator(x, y);
                 realBoard.checkAllTiles();
-                makeMove(x,y);
+                makeMove(x, y);
             }
-                
-                
         }
-
     }
 }
 
@@ -149,7 +183,10 @@ void Game::checkIsWin(int size) {
 
             std::cin >> input;
             if (input == "1")
-                m.start();
+            {
+                Game game(m.start());
+                game.playGame();
+            }
             else if (input == "2")
                 exit(0);
             else {
