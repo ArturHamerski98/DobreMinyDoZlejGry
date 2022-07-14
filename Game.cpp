@@ -20,6 +20,11 @@ void Game::validateMove() {
         std::cout << "Enter x coordinate: ";
         std::getline(std::cin, a);
 
+        if (a == "exit") {
+            std::cout << "See you next time!\n\n";
+            exit(0);
+        }
+
         int sum = 0;
         for (int i = 0; i < a.size(); i++) {
             if (isdigit(a[i]))sum++;
@@ -45,6 +50,11 @@ void Game::validateMove() {
 
         std::cout << "Enter y coordinate: ";
         std::getline(std::cin, b);
+
+        if (b == "exit") {
+            std::cout << "See you next time!\n\n";
+            exit(0);
+        }
 
         int sum2 = 0;
         for (int i = 0; i < b.size(); i++)
