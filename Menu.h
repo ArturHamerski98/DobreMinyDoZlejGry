@@ -4,13 +4,12 @@
 class Menu
 {
 public:
-    int rozmiar{};
-    std::string inputRozmiar{};
+    int number{};
+    std::string inputNumber{};
     int start();
 
 private:
     bool checkNumbers(char c);
-    bool checkRozmiarValue();
-    int checkRozmiar();
+    int checkNumber();
     int displayMenu();
 };

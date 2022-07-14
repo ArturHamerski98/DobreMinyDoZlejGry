@@ -18,24 +18,21 @@ void Game::validateMove() {
 
     while (validCoordinate == false) {
         std::cout << "Enter x coordinate: ";
-        std::cin >> a;
-        std::cin.clear();
-        std::cin.ignore(10000, '\n');
-        int sum = 0;
+        std::getline(std::cin, a);
 
-        for (int i = 0; i < a.size(); i++)
+        int sum = 0;
+        for (int i = 0; i < a.size(); i++) {
             if (isdigit(a[i]))sum++;
-        if (sum == a.size())
-            x = std::stoi(a);
+        }
+        if (sum == a.size()) x = std::stoi(a);
 
         x--;
 
-        while (x > size || x < 0) {
+        while (x > size - 1 || x < 0) {
             std::cout << "Invalid coordinate. Type coordinate again!\n";
             std::cout << "Enter x coordinate: ";
-            std::cin >> a;
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
+            std::getline(std::cin, a);
+
             int sum = 0;
 
             for (int i = 0; i < a.size(); i++)
@@ -47,11 +44,9 @@ void Game::validateMove() {
         }
 
         std::cout << "Enter y coordinate: ";
-        std::cin >> b;
-        std::cin.clear();
-        std::cin.ignore(10000, '\n');
-        int sum2 = 0;
+        std::getline(std::cin, b);
 
+        int sum2 = 0;
         for (int i = 0; i < b.size(); i++)
             if (isdigit(b[i]))sum2++;
         if (sum2 == b.size())
@@ -59,17 +54,16 @@ void Game::validateMove() {
 
         y--;
 
-        while (y > size || y < 0) {
+        while (y > size - 1 || y < 0) {
             std::cout << "Invalid coordinate. Type coordinate again\n";
             std::cout << "Enter y coordinate: ";
-            std::cin >> b;
-            std::cin.clear();
-            std::cin.ignore(10000, '\n');
-            int sum3 = 0;
+
+            std::getline(std::cin, b);
+            int sum2 = 0;
 
             for (int i = 0; i < b.size(); i++)
-                if (isdigit(b[i]))sum3++;
-            if (sum3 == b.size())
+                if (isdigit(b[i]))sum2++;
+            if (sum2 == b.size())
                 y = std::stoi(b);
 
             y--;
@@ -88,7 +82,7 @@ void Game::validateMove() {
                 std::cout << "1. Back to MENU\n";
                 std::cout << "2. Exit\n";
 
-                std::cin >> input;
+                std::getline(std::cin, input);
                 if (input == "1")
                 {
                     Game game(m.start());

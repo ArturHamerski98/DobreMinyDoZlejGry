@@ -7,37 +7,22 @@ bool Menu::checkNumbers(char c) {
     return c >= '0' && c <= '9';
 }
 
-bool Menu::checkRozmiarValue() {
-    if (rozmiar > 3 || rozmiar < 1) {
-        std::cout << "The entered value should be in range 1-3, try again: ";
-    }
+int Menu::checkNumber() {
+    bool isCorrect = false;
 
-    return (rozmiar <= 3 && rozmiar >= 1);
-}
-
-int Menu::checkRozmiar() {
     do {
-        std::cin >> inputRozmiar;
+        std::getline(std::cin, inputNumber);
 
-        //check char-by-char if inputed value is an positive integer
-        for (int i = 0; !inputRozmiar.empty() && (i <= inputRozmiar.length() - 1); i++) {
-            if (checkNumbers(inputRozmiar[i])) {
-                continue;
-            }
-            else {
-                std::cout << "\nThe entered value is incorrect." << std::endl;
-                inputRozmiar.clear();
-                break;
-            }
+        if (inputNumber != "1" && inputNumber != "2" && inputNumber != "3") {
+            std::cout << "\nThe entered value is incorrect." << std::endl;
+            std::cout << "The entered value should be in range 1-3, try again: ";
         }
+        else
+            isCorrect = true;
+       
+    } while (isCorrect == false);
 
-        if (!inputRozmiar.empty()) {
-            rozmiar = std::stoi(inputRozmiar);
-            inputRozmiar.clear();
-        }
-    } while (!checkRozmiarValue());
-
-    return rozmiar;
+    return  number = std::stoi(inputNumber);
 }
 
 int Menu::displayMenu() {
@@ -53,7 +38,7 @@ int Menu::displayMenu() {
     std::cout << "2. Intermediate\n";
     std::cout << "3. Advanced\n";
 
-    switch (checkRozmiar()) {
+    switch (checkNumber()) {
     case 1:
         return 9;
     case 2:
